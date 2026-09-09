@@ -2,9 +2,205 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>Redish</title>
+<title>歴史カレンダー サポート</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --bg: #F6F0E2;
+    --surface: #FBF7EC;
+    --ink: #2B2420;
+    --muted: #7C6B5A;
+    --accent: #C23B22;
+    --accent-soft: #F1DAD2;
+    --gold: #9C7A2D;
+    --rule: #DDD0B8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1F1811;
+      --surface: #29201A;
+      --ink: #F1E9DC;
+      --muted: #C7B49B;
+      --accent: #E2725A;
+      --accent-soft: #4A2A22;
+      --gold: #D9AE5E;
+      --rule: #4A3A2D;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1F1811;
+    --surface: #29201A;
+    --ink: #F1E9DC;
+    --muted: #C7B49B;
+    --accent: #E2725A;
+    --accent-soft: #4A2A22;
+    --gold: #D9AE5E;
+    --rule: #4A3A2D;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+
+  header.title-block {
+    margin-bottom: 56px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 28px;
+  }
+
+  h1 {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.4;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+
+  .app-name {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 16px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  section.clause {
+    margin-bottom: 44px;
+  }
+
+  h2 {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .faq-item:last-child { margin-bottom: 0; }
+
+  .faq-q {
+    font-weight: 700;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .faq-q .mark {
+    color: var(--gold);
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    flex-shrink: 0;
+  }
+  .faq-a {
+    color: var(--ink);
+    padding-left: 1.6em;
+    font-size: 15px;
+  }
+  .faq-a p { margin: 0; }
+
+  .contact-card {
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 24px 26px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 14px;
+  }
+  .contact-card .label {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .contact-card a {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 48px 0;
+  }
+
+  footer {
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  footer p { margin: 0 0 8px; }
+
+  @media (max-width: 480px) {
+    .page { padding: 44px 18px 72px; }
+  }
+</style>
 </head>
 <body>
-<p>Developer website.</p>
+<div class="page">
+  <header class="title-block">
+    <h1>サポート</h1>
+    <p class="app-name">歴史カレンダー(History Calendar)</p>
+  </header>
+
+  <section class="clause">
+    <h2>よくある質問</h2>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="mark">Q</span>My年表と標準年表の違いは何ですか?</div>
+      <div class="faq-a"><p>「標準年表」は教科書レベルの出来事をすべて見られる参照用の年表です。「My年表」はそこから自分が学びたい出来事を選んで作る、あなただけの年表です。標準年表の出来事は長押しで「My年表に追加する」/「My年表から外す」を切り替えられます。</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="mark">Q</span>広告を消すにはどうすればいいですか?</div>
+      <div class="faq-a"><p>年表画面右上の「⋮」メニューから「広告を削除」を購入すると、以降広告が表示されなくなります。機種変更などで再インストールした場合は、同じメニューの「購入の復元」から復元できます。</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="mark">Q</span>追加した出来事や写真はどこに保存されますか?</div>
+      <div class="faq-a"><p>すべて端末内にのみ保存され、外部には送信されません。アプリを削除するとこれらのデータも削除されるため、機種変更の際はご注意ください。</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><span class="mark">Q</span>不具合を見つけた・要望がある場合は?</div>
+      <div class="faq-a"><p>下記の連絡先までご連絡ください。お使いの端末の機種・OSバージョンと、発生した状況を教えていただけるとスムーズです。</p></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="clause">
+    <h2>お問い合わせ</h2>
+    <div class="contact-card">
+      <span class="label">MAIL</span>
+      <a href="mailto:redish.contact@gmail.com">redish.contact@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>プライバシーポリシーは<a href="https://claude.ai/code/artifact/1762f1d8-2cf1-4a5f-ac28-e8f592479863" target="_blank" rel="noopener">こちら</a>をご覧ください。</p>
+  </footer>
+</div>
 </body>
 </html>
